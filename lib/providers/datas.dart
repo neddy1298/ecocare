@@ -15,10 +15,11 @@ class Datas with ChangeNotifier {
   Data selectById(String id) =>
       _allData.firstWhere((element) => element.id == id);
 
-  void aturSuhu(String id, int derajat, int ph, BuildContext context) {
+  void aturSuhu(
+      String id, int heater_speed, int cooling_speed, BuildContext context) {
     Data selectData = _allData.firstWhere((element) => element.id == id);
-    selectData.derajat = derajat;
-    selectData.ph = ph;
+    selectData.heater_speed = heater_speed;
+    selectData.cooling_speed = cooling_speed;
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -40,7 +41,7 @@ class Datas with ChangeNotifier {
     // Directly update _allData with the single array data
     _allData.add(
       Data(
-        id: 'Suhu', // Provide a unique ID or use 'monitor_suhu' as appropriate
+        id: 'Suhu',
         derajat: data['derajat'],
         ph: data['ph'],
         heater_speed: data['heater_speed'],
