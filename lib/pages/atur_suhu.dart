@@ -14,10 +14,10 @@ class AturSuhu extends StatelessWidget {
     final datas = Provider.of<Datas>(context, listen: false);
     final dataId = ModalRoute.of(context)!.settings.arguments as String;
     final selectData = datas.selectById(dataId);
-    final TextEditingController derajatController =
-        TextEditingController(text: selectData.derajat.toString());
-    final TextEditingController phController =
-        TextEditingController(text: selectData.ph.toString());
+    final TextEditingController heaterController =
+        TextEditingController(text: selectData.heater_speed.toString());
+    final TextEditingController coolingController =
+        TextEditingController(text: selectData.cooling_speed.toString());
     return Scaffold(
       appBar: AppBar(
         title: const Text("DETAIL PLAYER"),
@@ -32,13 +32,13 @@ class AturSuhu extends StatelessWidget {
                 autofocus: true,
                 decoration: const InputDecoration(labelText: "Suhu"),
                 textInputAction: TextInputAction.next,
-                controller: derajatController,
+                controller: heaterController,
               ),
               TextFormField(
                 autocorrect: false,
-                decoration: const InputDecoration(labelText: "Ph"),
+                decoration: const InputDecoration(labelText: "cooling"),
                 textInputAction: TextInputAction.next,
-                controller: phController,
+                controller: coolingController,
               ),
               const SizedBox(height: 50),
               Container(
@@ -48,8 +48,8 @@ class AturSuhu extends StatelessWidget {
                   onPressed: () {
                     datas.aturSuhu(
                       dataId,
-                      derajatController.text as int,
-                      phController.text as int,
+                      heaterController.text as int,
+                      coolingController.text as int,
                       context,
                     );
                     Navigator.pop(context);
