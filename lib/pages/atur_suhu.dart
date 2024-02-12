@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 // import '../providers/datas.dart';
 
 class AturSuhu extends StatelessWidget {
-  static const routeName = "/detail-player";
+  static const routeName = "/atur-suhu";
 
   const AturSuhu({super.key});
 
@@ -20,7 +20,7 @@ class AturSuhu extends StatelessWidget {
         TextEditingController(text: selectData.cooling_speed.toString());
     return Scaffold(
       appBar: AppBar(
-        title: const Text("DETAIL PLAYER"),
+        title: const Text("Atur Suhu"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -47,9 +47,8 @@ class AturSuhu extends StatelessWidget {
                 child: OutlinedButton(
                   onPressed: () {
                     datas.aturSuhu(
-                      dataId,
-                      heaterController.text as int,
-                      coolingController.text as int,
+                      int.parse(heaterController.text),
+                      int.parse(coolingController.text),
                       context,
                     );
                     Navigator.pop(context);
