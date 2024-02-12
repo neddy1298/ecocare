@@ -63,8 +63,8 @@ class Datas with ChangeNotifier {
           id: 'Suhu',
           derajat: updatedData['derajat'],
           ph: updatedData['ph'],
-          cooling_speed: data['cooling_speed'],
-          heater_speed: data['heater_speed'],
+          cooling_speed: updatedData['cooling_speed'], // Use updatedData here
+          heater_speed: updatedData['heater_speed'], // Use updatedData here
           createdAt: DateTime.now(),
         ),
       );
