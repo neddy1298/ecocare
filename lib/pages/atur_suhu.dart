@@ -47,6 +47,7 @@ class AturSuhu extends StatelessWidget {
                 child: OutlinedButton(
                   onPressed: () {
                     datas.aturSuhu(
+                      selectData.id,
                       int.parse(heaterController.text),
                       int.parse(coolingController.text),
                       context,
