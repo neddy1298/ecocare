@@ -20,6 +20,7 @@ class EcoCare extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: const HomePage(),
         routes: {
+          // AddPlayer.routeName: (context) => AddPlayer(),
           AturSuhu.routeName: (context) => const AturSuhu(),
         },
       ),
