@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
     Provider.of<Datas>(context, listen: false).initialData();
 
     // Set up a timer to refresh every 5 seconds
-    _timer = Timer.periodic(Duration(seconds: 5), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 5), (timer) {
       if (mounted) {
         // Check if the widget is still mounted before calling setState
         Provider.of<Datas>(context, listen: false).initialData();
@@ -60,22 +60,22 @@ class _HomePageState extends State<HomePage> {
                 ? const CircularProgressIndicator()
                 : Column(
                     children: [
-                      SizedBox(height: 100),
+                      const SizedBox(height: 100),
                       Text(
                         "Derajat: ${monitor.allData[0].derajat}",
                         style: const TextStyle(fontSize: 50),
                       ),
-                      SizedBox(height: 30),
+                      const SizedBox(height: 30),
                       Text(
                         "PH: ${monitor.allData[0].ph}",
                         style: const TextStyle(fontSize: 50),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Text(
                         "Heater Speed: ${monitor.allData[0].heater_speed} RPM - Cooling Speed: ${monitor.allData[0].cooling_speed} RPM",
                         style: const TextStyle(fontSize: 15),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       ElevatedButton(
                         onPressed: () {
                           Navigator.pushNamed(

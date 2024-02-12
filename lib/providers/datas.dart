@@ -6,7 +6,7 @@ import 'package:firebase_database/firebase_database.dart';
 import '../models/data.dart';
 
 class Datas with ChangeNotifier {
-  List<Data> _allData = [];
+  final List<Data> _allData = [];
 
   List<Data> get allData => _allData;
 
@@ -16,13 +16,13 @@ class Datas with ChangeNotifier {
       _allData.firstWhere((element) => element.id == id);
 
   void aturSuhu(
-      String id, int heater_speed, int cooling_speed, BuildContext context) {
+      String id, int heaterSpeed, int coolingSpeed, BuildContext context) {
     Data selectData = _allData.firstWhere((element) => element.id == id);
-    selectData.heater_speed = heater_speed;
-    selectData.cooling_speed = cooling_speed;
+    selectData.heater_speed = heaterSpeed;
+    selectData.cooling_speed = coolingSpeed;
 
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
+      const SnackBar(
         content: Text("Berhasil diubah"),
         duration: Duration(seconds: 2),
       ),
