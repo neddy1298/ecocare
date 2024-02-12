@@ -1,5 +1,6 @@
 # API Key
 /lib/api/api_key.dart
+/lib/firebase_options.dart
 
 # Miscellaneous
 *.class
