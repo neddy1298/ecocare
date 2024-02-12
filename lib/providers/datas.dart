@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:ecocare/api/api_key.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -7,6 +8,7 @@ import '../models/data.dart';
 
 class Datas with ChangeNotifier {
   final List<Data> _allData = [];
+  final String apiPath = Api.path;
 
   List<Data> get allData => _allData;
 
@@ -31,7 +33,7 @@ class Datas with ChangeNotifier {
   }
 
   Future<void> initialData() async {
-    Uri url = Uri.parse('https://flask-test-a3ccc.firebaseio.com/ecocare.json');
+    Uri url = Uri.parse(apiPath);
 
     var hasilData = await http.get(url);
     var data = json.decode(hasilData.body) as Map<String, dynamic>;
